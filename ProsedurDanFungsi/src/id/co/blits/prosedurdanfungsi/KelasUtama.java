@@ -15,10 +15,10 @@ public class KelasUtama {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Prosedur prosedur = new Prosedur();
-        prosedur.LuasSegitiga(13,21);        
-        Fungsi fungsi = new Fungsi();
-        int Luas = fungsi.LuasPersegi(10,10);
+        Prosedur prosedur = new Prosedur(); //instanisasi kelas Prosedur
+        prosedur.LuasSegitiga(13,21);       //kelas prosedur menjadi objek 
+        Fungsi fungsi = new Fungsi();       //instanisasi kelas Fungsi
+        int Luas = fungsi.LuasPersegi(10,10); //kelas fungsi menjadi objek
         System.out.println("Luas Persegi = "+Luas+" cm2.");
     }
     

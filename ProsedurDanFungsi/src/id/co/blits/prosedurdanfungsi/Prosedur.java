@@ -10,7 +10,7 @@ package id.co.blits.prosedurdanfungsi;
  * @author Digo Pratama <pratamawocky@gmail.com>
  */
 public class Prosedur {
-    void LuasSegitiga(int alas, int tinggi){
+    void LuasSegitiga(int alas, int tinggi){ //inisialisasi prosedur dengan parameter
         float hasil = (float) (0.5 * alas * tinggi);
         System.out.println("Luas Segitiga = "+hasil+" cm2.");
     }
