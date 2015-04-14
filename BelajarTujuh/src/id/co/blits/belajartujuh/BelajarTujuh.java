@@ -6,20 +6,23 @@
 package id.co.blits.belajartujuh;
 
 import java.awt.Component;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Mahasiswa
+ * @author Digo Pratama
  */
 public class BelajarTujuh extends javax.swing.JFrame {
-
+DefaultTableModel model = new DefaultTableModel();
     /**
      * Creates new form BelajarTujuh
      */
     public BelajarTujuh() {
         initComponents();
         setLocationRelativeTo(null);
+        tabelData.setModel(model);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,7 +45,7 @@ public class BelajarTujuh extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelData = new javax.swing.JTable();
 
         jLabel3.setText("jLabel3");
 
@@ -127,7 +130,7 @@ public class BelajarTujuh extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 255, 153));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -137,7 +140,7 @@ public class BelajarTujuh extends javax.swing.JFrame {
                 "Nama", "Jenis Kelamin", "Asal"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tabelData);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -184,10 +187,12 @@ public class BelajarTujuh extends javax.swing.JFrame {
         String jk = (String) jComboBox1.getSelectedItem();
         String asal = jTextField2.getText().trim();
         
-        String hasil = "Nama \t: "+Nama+
+        /*String hasil = "Nama \t: "+Nama+
                        "\nJenis Kelamin   : "+jk+
-                       "\nAsal \t: "+asal;
+                       "\nAsal \t: "+asal;*/
         //jTextArea1.setText(hasil);
+        Object [] data = {Nama,jk,asal};
+        model.addRow(data);
     }
     @Override
     public void setLocationRelativeTo(Component cmpnt) {
@@ -201,9 +206,18 @@ public class BelajarTujuh extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+    /*private void tabelDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDataMouseClicked
+int a = tabelData.getSelectedRow();
+String Nama = (String) model.getValueAt(a, 0);
+jTextField1.setText(Nama);
+String Nim = (String) model.getValueAt(a, 1);
+jComboBox1.getSelectedItem();
+String Jurusan = (String) model.getValueAt(a,2);
+jTextField2.setText(Jurusan);
+    }*/
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ambil();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -252,8 +266,8 @@ public class BelajarTujuh extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTable tabelData;
     // End of variables declaration//GEN-END:variables
 }

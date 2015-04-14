@@ -18,7 +18,7 @@ public class KelasUtama {
         Prosedur prosedur = new Prosedur(); //instanisasi kelas Prosedur
         prosedur.LuasSegitiga(13,21);       //kelas prosedur menjadi objek 
         Fungsi fungsi = new Fungsi();       //instanisasi kelas Fungsi
-        int Luas = fungsi.LuasPersegi(10,10); //kelas fungsi menjadi objek
+        int Luas = fungsi.LuasPersegiPanjang(9,10); //kelas fungsi menjadi objek
         System.out.println("Luas Persegi = "+Luas+" cm2.");
     }
     

@@ -10,9 +10,9 @@ package id.co.blits.prosedurdanfungsi;
  * @author Digo Pratama <pratamawocky@gmail.com>
  */
 public class Fungsi {
-    int LuasPersegi(int sisi1, int sisi2){ //inisialisasi fungsi dengan parameter
-        int luasPersegi;
-        luasPersegi = sisi1 * sisi2;
-        return luasPersegi;
+    int LuasPersegiPanjang(int panjang, int lebar){ //inisialisasi fungsi dengan parameter
+        int luasPersegiPanjang;
+        luasPersegiPanjang = panjang * lebar;
+        return luasPersegiPanjang;
     }
 }
