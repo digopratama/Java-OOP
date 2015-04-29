@@ -59,10 +59,6 @@ private TabelDataMahasiswa ModelDataMahasiswa;
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblMahasiswa = new javax.swing.JTable();
-        jLayeredPane3 = new javax.swing.JLayeredPane();
-        jLabel4 = new javax.swing.JLabel();
-        CmbCari = new javax.swing.JComboBox();
-        TxtCari = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Daftar Mahasiswa");
@@ -204,51 +200,11 @@ private TabelDataMahasiswa ModelDataMahasiswa;
         );
         jLayeredPane2.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLayeredPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Pencarian"));
-
-        jLabel4.setText("Cari Berdasarkan");
-
-        CmbCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NPM", "Nama", "Jurusan" }));
-
-        TxtCari.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TxtCariKeyReleased(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
-        jLayeredPane3.setLayout(jLayeredPane3Layout);
-        jLayeredPane3Layout.setHorizontalGroup(
-            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(CmbCari, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtCari)
-                .addGap(15, 15, 15))
-        );
-        jLayeredPane3Layout.setVerticalGroup(
-            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(CmbCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        jLayeredPane3.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(CmbCari, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(TxtCari, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLayeredPane3)
             .addComponent(jLayeredPane2)
         );
         layout.setVerticalGroup(
@@ -256,10 +212,7 @@ private TabelDataMahasiswa ModelDataMahasiswa;
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2))
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -283,11 +236,6 @@ private TabelDataMahasiswa ModelDataMahasiswa;
     private void TxtJurusanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtJurusanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtJurusanActionPerformed
-
-    private void TxtCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCariKeyReleased
-        // TODO add your handling code here:
-        cari();
-    }//GEN-LAST:event_TxtCariKeyReleased
 
     private void TblMahasiswaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblMahasiswaMousePressed
         // TODO add your handling code here:
@@ -334,7 +282,7 @@ private TabelDataMahasiswa ModelDataMahasiswa;
         TxtNama.setText(null);
         TxtNpm.setText(null);
         TxtJurusan.setText(null);
-        TxtCari.setText(null);
+       // TxtCari.setText(null);
         BtnSimpan.setEnabled(true);
         BtnUbah.setEnabled(false);
         BtnHapus.setEnabled(false);
@@ -349,8 +297,8 @@ private TabelDataMahasiswa ModelDataMahasiswa;
 
                 if (baris != -1) {
                     DataMahasiswa kontak = ModelDataMahasiswa.get(baris);
-                    TxtNama.setText(kontak.getNama());
-                    TxtNpm.setText(kontak.getNPM());
+                    TxtNama.setText(kontak.getNPM());
+                    TxtNpm.setText(kontak.getNama());
                     TxtJurusan.setText(kontak.getJurusan());
                 }
             }
@@ -375,7 +323,7 @@ private TabelDataMahasiswa ModelDataMahasiswa;
             bersih();
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(this, "NPM sudah Ada atau Anda melebihi karakter yang dibolehkan <10");
+            JOptionPane.showMessageDialog(this, "NPM sudah Ada");
             bersih();
 
         }
@@ -395,7 +343,7 @@ private TabelDataMahasiswa ModelDataMahasiswa;
                 script.executeUpdate(sql);
 
                 tampil();
-                JOptionPane.showMessageDialog(null, "Mahasiswa berhasil dirubah");
+                JOptionPane.showMessageDialog(null, "Mahasiswa berhasil di ubah");
                 bersih();
             } catch (SQLException ex) {
                 System.err.print(ex);
@@ -423,21 +371,21 @@ private TabelDataMahasiswa ModelDataMahasiswa;
         }
     }
 
-    private void cari() {
-        int baris = TblMahasiswa.getRowCount();
-        String bantu = CmbCari.getSelectedItem().toString();
+    //private void cari() {
+        //int baris = TblMahasiswa.getRowCount();
+        //String bantu = CmbCari.getSelectedItem().toString();
 
-        for (int i = 0; i < baris; i++) {
-            ModelDataMahasiswa.delete(i, baris);
-        }
+        //for (int i = 0; i < baris; i++) {
+            //ModelDataMahasiswa.delete(i, baris);
+        //}
 
-        try {
-            String sql = "select * from Mahasiswa where "
-                    + bantu + " like '%" + TxtCari.getText() + "%'";
+        //try {
+         //   String sql = "select * from Mahasiswa where "
+                  //  + bantu + " like '%" + TxtCari.getText() + "%'";
 
-            ResultSet rs = script.executeQuery(sql);
+            //ResultSet rs = script.executeQuery(sql);
 
-            while (rs.next()) {
+           /* while (rs.next()) {
                 DataMahasiswa mahasiswa = new DataMahasiswa();
 
                 mahasiswa.setNPM(rs.getString(2));
@@ -449,7 +397,7 @@ private TabelDataMahasiswa ModelDataMahasiswa;
         } catch (SQLException ex) {
             System.err.print(ex);
         }
-    }
+    }*/
     /**
      * @param args the command line arguments
      */
@@ -489,19 +437,15 @@ private TabelDataMahasiswa ModelDataMahasiswa;
     private javax.swing.JButton BtnHapus;
     private javax.swing.JButton BtnSimpan;
     private javax.swing.JButton BtnUbah;
-    private javax.swing.JComboBox CmbCari;
     private javax.swing.JTable TblMahasiswa;
-    private javax.swing.JTextField TxtCari;
     private javax.swing.JTextField TxtJurusan;
     private javax.swing.JTextField TxtNama;
     private javax.swing.JTextField TxtNpm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
-    private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

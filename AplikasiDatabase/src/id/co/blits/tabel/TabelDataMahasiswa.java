@@ -29,8 +29,8 @@ return 3;
 @Override
 public Object getValueAt(int rowIndex, int columnIndex) {
 switch(columnIndex){
-case 0 : return list.get(rowIndex).getNama();
-case 1 : return list.get(rowIndex).getNPM();
+case 0 : return list.get(rowIndex).getNPM();
+case 1 : return list.get(rowIndex).getNama();
 case 2 : return list.get(rowIndex).getJurusan();
 default : return null;
 }
@@ -39,8 +39,8 @@ default : return null;
 @Override
 public String getColumnName(int kolom){
 switch(kolom){
-case 0 : return "Nama";
-case 1 : return "NPM";
+case 0 : return "NPM";
+case 1 : return "Nama";
 case 2 : return "Jurusan";
 default : return null;
 }
